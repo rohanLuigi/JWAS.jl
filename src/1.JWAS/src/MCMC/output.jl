@@ -2,7 +2,7 @@
 #User-interface to set training and testing individuals
 ################################################################################
 #function set_training(model,IDs)
-#    IDs = map(String,vec(IDs)) #Array{String,1}
+#    IDs = map(string,vec(IDs)) #Array{String,1}
 #    model.training_ID=IDs
 #end
 
@@ -14,7 +14,7 @@ Output estimated breeding values and prediction error variances (defaulting to f
 """
 function outputEBV(model,IDs;PEV=false)
     #print("Estimated breeding values and prediction error variances will be included in the output.")
-    IDs = map(String,vec(IDs)) #Array{String,1}
+    IDs = map(string,vec(IDs)) #Array{String,1}
     model.output_ID=IDs
 end
 
