@@ -4,16 +4,16 @@
 
 function check_pedigree(mme,df,pedigree)
     if pedigree!=false
-        pedID=map(String,collect(keys(pedigree.idMap)))
+        pedID=map(string,collect(keys(pedigree.idMap)))
     else
-        pedID=map(String,collect(keys(mme.ped.idMap)))
+        pedID=map(string,collect(keys(mme.ped.idMap)))
     end
 
     if mme.M!=0 && !issubset(mme.M.obsID,pedID)
         error("Not all genotyped individuals are found in pedigree!")
     end
 
-    phenoID = map(String,df[:,1])
+    phenoID = map(string,df[:,1])
     if !issubset(phenoID,pedID)
         error("Not all phenotyped individuals are found in pedigree!")
     end
