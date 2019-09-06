@@ -24,6 +24,9 @@ O3,0,0,2,1,1
 ```
 """
 function add_genotypes(mme::MME,file,G;separator=' ',header=true,center=true,rowID=true,G_is_marker_variance=false,df=4)
+    if !isposdef(G)
+        error("The covariance matrix is not positive definite.")
+    end
     mme.M   = readgenotypes(file;separator=separator,header=header,rowID=rowID,center=center)
     mme.M.G = G
     mme.M.G_is_marker_variance = G_is_marker_variance
